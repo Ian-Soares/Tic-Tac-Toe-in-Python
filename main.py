@@ -30,32 +30,8 @@ def askMove(letter):
     while True:
         try:
             move = input('Where will you play?: ').strip()
-            if move == '1' and board[0][0] == ' ': 
-                board[0][0] = letter
-                break
-            elif move == '2' and board[1][0] == ' ': 
-                board[1][0] = letter
-                break
-            elif move == '3' and board[2][0] == ' ': 
-                board[2][0] = letter
-                break
-            elif move == '4' and board[3][0] == ' ': 
-                board[3][0] = letter
-                break
-            elif move == '5' and board[4][0] == ' ': 
-                board[4][0] = letter
-                break
-            elif move == '6' and board[5][0] == ' ': 
-                board[5][0] = letter
-                break
-            elif move == '7' and board[6][0] == ' ': 
-                board[6][0] = letter
-                break
-            elif move == '8' and board[7][0] == ' ': 
-                board[7][0] = letter
-                break
-            elif move == '9' and board[8][0] == ' ': 
-                board[8][0] = letter
+            if board[int(move)-1][0] == ' ':
+                board[int(move)-1][0] = letter
                 break
             elif int(move) > 9 or int(move) < 1: print(f'Sorry, but "{move}" is not an option.')
             else: print('This place may be occupied.')
@@ -176,7 +152,7 @@ if game_type == 'Against Bot':
     while True:
         # PLAYER MOVE
         print()
-        print('You play!')
+        print(' > You play!')
         print()
         askMove('X')
         printBoard()
@@ -187,7 +163,7 @@ if game_type == 'Against Bot':
         # BOT MOVE
         sleep(0.5)
         print()
-        print('Bot\'s time!')
+        print(' > Bot\'s time!')
         print()
         sleep(0.5)
         botMove()
@@ -209,7 +185,7 @@ elif game_type == '1v1':
         # PLAYER 1 MOVE
         sleep(0.5)
         print()
-        print('Player 1\'s time!')
+        print(' > Player 1\'s time!')
         print()
         askMove('X')
         printBoard()
@@ -220,7 +196,7 @@ elif game_type == '1v1':
         # PLAYER 2 MOVE
         sleep(0.5)
         print()
-        print('Player 2\'s time!')
+        print(' > Player 2\'s time!')
         print()
         sleep(0.5)
         askMove('O')
