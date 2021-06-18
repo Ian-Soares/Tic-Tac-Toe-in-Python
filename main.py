@@ -37,72 +37,114 @@ def askMove(letter):
             else: print('This place may be occupied.')
         except ValueError:
             print('You need to enter some value!')
+        except:
+            print('Something went wrong, try again.')
 
 def botMove():
     global board
     while True:
-        if board[0][0] == 'X' and board[1][0] == 'X' and board[2][0] == ' ':
+        # [0][0]
+        if board[0][0] == board[1][0] and board[2][0] == ' ':
             board[2][0] = 'O'
             break
 
-        elif board[0][0] == 'X' and board[2][0] == 'X' and board[1][0] == ' ':
+        elif board[0][0] == board[2][0] and board[1][0] == ' ':
             board[1][0] = 'O'
             break
 
-        elif board[0][0] == 'X' and board[3][0] == 'X' and board[6][0] == ' ':
+        elif board[0][0] == board[4][0] and board[8][0] == ' ':
+            board[8][0] = 'O'
+            break
+        
+        elif board[0][0] == board[8][0] and board[4][0] == ' ':
+            board[4][0] = 'O'
+            break
+
+        elif board[0][0] == board[3][0] and board[6][0] == ' ':
             board[6][0] = 'O'
             break
 
-        elif board[0][0] == 'X' and board[6][0] == 'X' and board[3][0] == ' ':
+        elif board[0][0] == board[6][0] and board[3][0] == ' ':
             board[3][0] = 'O'
             break
 
-        elif board[0][0] == 'X' and board[4][0] == 'X' and board[8][0] == ' ':
-            board[8][0] = 'O'
+        # [1][1]
+        elif board[1][0] == board[2][0] and board[0][0] == ' ':
+            board[0][0] = 'O'
             break
 
-        elif board[0][0] == 'X' and board[8][0] == 'X' and board[4][0] == ' ':
-            board[4][0] = 'O'
-            break
-
-        elif board[1][0] == 'X' and board[4][0] == 'X' and board[7][0] == ' ':
+        elif board[1][0] == board[4][0] and board[7][0] == ' ':
             board[7][0] = 'O'
             break
 
-        elif board[1][0] == 'X' and board[7][0] == 'X' and board[4][0] == ' ':
+        elif board[1][0] == board[7][0] and board[4][0] == ' ':
             board[4][0] = 'O'
             break
 
-        elif board[2][0] == 'X' and board[5][0] == 'X' and board[8][0] == ' ':
+        # [2][0]
+        elif board[2][0] == board[5][0] and board[8][0] == ' ':
             board[8][0] = 'O'
             break
 
-        elif board[2][0] == 'X' and board[8][0] == 'X' and board[5][0] == ' ':
+        elif board[2][0] == board[8][0] and board[5][0] == ' ':
             board[5][0] = 'O'
             break
 
-        elif board[2][0] == 'X' and board[4][0] == 'X' and board[6][0] == ' ':
+        elif board[2][0] == board[4][0] and board[6][0] == ' ':
             board[6][0] = 'O'
             break
 
-        elif board[2][0] == 'X' and board[6][0] == 'X' and board[4][0] == ' ':
+        elif board[2][0] == board[6][0] and board[4][0] == ' ':
             board[4][0] = 'O'
             break
-        
-        elif board[3][0] == 'X' and board[4][0] == 'X' and board[5][0] == ' ':
+
+        # [3][0]
+        elif board[3][0] == board[6][0] and board[0][0] == ' ':
+            board[0][0] = 'O'
+            break
+
+        elif board[3][0] == board[4][0] and board[5][0] == ' ':
             board[5][0] = 'O'
             break
 
-        elif board[3][0] == 'X' and board[5][0] == 'X' and board[4][0] == ' ':
+        elif board[3][0] == board[5][0] and board[4][0] == ' ':
             board[4][0] = 'O'
             break
 
-        elif board[6][0] == 'X' and board[7][0] == 'X' and board[8][0] == ' ':
+        # [4][0]
+        elif board[4][0] == board[8][0] and board[0][0] == ' ':
+            board[0][0] = 'O'
+            break
+
+        elif board[4][0] == board[5][0] and board[3][0] == ' ':
+            board[3][0] = 'O'
+            break
+
+        elif board[4][0] == board[7][0] and board[1][0] == ' ':
+            board[1][0] = 'O'
+            break
+
+        elif board[4][0] == board[6][0] and board[2][0] == ' ':
+            board[2][0] = 'O'
+            break
+
+        # [5][0]
+        elif board[5][0] == board[8][0] and board[2][0] == ' ':
+            board[2][0] = 'O'
+            break
+
+        # [6][0]
+        elif board[6][0] == board[7][0] and board[8][0] == ' ':
             board[8][0] = 'O'
             break
 
-        elif board[6][0] == 'X' and board[8][0] == 'X' and board[7][0] == ' ':
+        elif board[6][0] == board[8][0] and board[7][0] == ' ':
             board[7][0] = 'O'
+            break
+
+        # [7][0]
+        elif board[7][0] == board[8][0] and board[6][0] == ' ':
+            board[6][0] = 'O'
             break
 
         else:
