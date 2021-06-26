@@ -30,6 +30,7 @@ def askMove(letter):
     while True:
         try:
             move = input('Where will you play?: ').strip()
+            print()
             if board[int(move)-1][0] == ' ':
                 board[int(move)-1][0] = letter
                 break
@@ -42,142 +43,121 @@ def askMove(letter):
 
 def botMove():
     global board
+    PLAYERS = ['O','X']
     while True:
-        # [0][0]
-        if board[0][0] == board[1][0] and board[2][0] == ' ':
-            board[2][0] = 'O'
-            break
-
-        elif board[0][0] == board[2][0] and board[1][0] == ' ':
-            board[1][0] = 'O'
-            break
-
-        elif board[0][0] == board[4][0] and board[8][0] == ' ':
-            board[8][0] = 'O'
-            break
-        
-        elif board[0][0] == board[8][0] and board[4][0] == ' ':
-            board[4][0] = 'O'
-            break
-
-        elif board[0][0] == board[3][0] and board[6][0] == ' ':
-            board[6][0] = 'O'
-            break
-
-        elif board[0][0] == board[6][0] and board[3][0] == ' ':
-            board[3][0] = 'O'
-            break
-
-        # [1][1]
-        elif board[1][0] == board[2][0] and board[0][0] == ' ':
-            board[0][0] = 'O'
-            break
-
-        elif board[1][0] == board[4][0] and board[7][0] == ' ':
-            board[7][0] = 'O'
-            break
-
-        elif board[1][0] == board[7][0] and board[4][0] == ' ':
-            board[4][0] = 'O'
-            break
-
-        # [2][0]
-        elif board[2][0] == board[5][0] and board[8][0] == ' ':
-            board[8][0] = 'O'
-            break
-
-        elif board[2][0] == board[8][0] and board[5][0] == ' ':
-            board[5][0] = 'O'
-            break
-
-        elif board[2][0] == board[4][0] and board[6][0] == ' ':
-            board[6][0] = 'O'
-            break
-
-        elif board[2][0] == board[6][0] and board[4][0] == ' ':
-            board[4][0] = 'O'
-            break
-
-        # [3][0]
-        elif board[3][0] == board[6][0] and board[0][0] == ' ':
-            board[0][0] = 'O'
-            break
-
-        elif board[3][0] == board[4][0] and board[5][0] == ' ':
-            board[5][0] = 'O'
-            break
-
-        elif board[3][0] == board[5][0] and board[4][0] == ' ':
-            board[4][0] = 'O'
-            break
-
-        # [4][0]
-        elif board[4][0] == board[8][0] and board[0][0] == ' ':
-            board[0][0] = 'O'
-            break
-
-        elif board[4][0] == board[5][0] and board[3][0] == ' ':
-            board[3][0] = 'O'
-            break
-
-        elif board[4][0] == board[7][0] and board[1][0] == ' ':
-            board[1][0] = 'O'
-            break
-
-        elif board[4][0] == board[6][0] and board[2][0] == ' ':
-            board[2][0] = 'O'
-            break
-
-        # [5][0]
-        elif board[5][0] == board[8][0] and board[2][0] == ' ':
-            board[2][0] = 'O'
-            break
-
-        # [6][0]
-        elif board[6][0] == board[7][0] and board[8][0] == ' ':
-            board[8][0] = 'O'
-            break
-
-        elif board[6][0] == board[8][0] and board[7][0] == ' ':
-            board[7][0] = 'O'
-            break
-
-        # [7][0]
-        elif board[7][0] == board[8][0] and board[6][0] == ' ':
-            board[6][0] = 'O'
-            break
-
-        else:
-            bot_move = randint(1,9)
-            if bot_move == 1 and board[0][0] == ' ': 
-                board[0][0] = 'O'
-                break
-            elif bot_move == 2 and board[1][0] == ' ': 
-                board[1][0] = 'O'
-                break
-            elif bot_move == 3 and board[2][0] == ' ': 
+        for player in PLAYERS:
+            # [0][0]
+            if board[0][0] == board[1][0] and board[2][0] == ' ' and board[0][0] == player:
                 board[2][0] = 'O'
                 break
-            elif bot_move == 4 and board[3][0] == ' ': 
-                board[3][0] = 'O'
+
+            elif board[0][0] == board[2][0] and board[1][0] == ' ' and board[0][0] == player:
+                board[1][0] = 'O'
                 break
-            elif bot_move == 5 and board[4][0] == ' ': 
+
+            elif board[0][0] == board[4][0] and board[8][0] == ' ' and board[0][0] == player:
+                board[8][0] = 'O'
+                break
+            
+            elif board[0][0] == board[8][0] and board[4][0] == ' ' and board[0][0] == player:
                 board[4][0] = 'O'
                 break
-            elif bot_move == 6 and board[5][0] == ' ': 
-                board[5][0] = 'O'
-                break
-            elif bot_move == 7 and board[6][0] == ' ': 
+
+            elif board[0][0] == board[3][0] and board[6][0] == ' ' and board[0][0] == player:
                 board[6][0] = 'O'
                 break
-            elif bot_move == 8 and board[7][0] == ' ': 
+
+            elif board[0][0] == board[6][0] and board[3][0] == ' ' and board[0][0] == player:
+                board[3][0] = 'O'
+                break
+
+            # [1][1]
+            elif board[1][0] == board[2][0] and board[0][0] == ' ' and board[1][0] == player:
+                board[0][0] = 'O'
+                break
+
+            elif board[1][0] == board[4][0] and board[7][0] == ' ' and board[1][0] == player:
                 board[7][0] = 'O'
                 break
-            elif bot_move == 9 and board[8][0] == ' ': 
+
+            elif board[1][0] == board[7][0] and board[4][0] == ' ' and board[1][0] == player:
+                board[4][0] = 'O'
+                break
+
+            # [2][0]
+            elif board[2][0] == board[5][0] and board[8][0] == ' ' and board[2][0] == player:
                 board[8][0] = 'O'
+                break
+
+            elif board[2][0] == board[8][0] and board[5][0] == ' ' and board[2][0] == player:
+                board[5][0] = 'O'
+                break
+
+            elif board[2][0] == board[4][0] and board[6][0] == ' ' and board[2][0] == player:
+                board[6][0] = 'O'
+                break
+
+            elif board[2][0] == board[6][0] and board[4][0] == ' ' and board[2][0] == player:
+                board[4][0] = 'O'
+                break
+
+            # [3][0]
+            elif board[3][0] == board[6][0] and board[0][0] == ' ' and board[3][0] == player:
+                board[0][0] = 'O'
+                break
+
+            elif board[3][0] == board[4][0] and board[5][0] == ' ' and board[3][0] == player:
+                board[5][0] = 'O'
+                break
+
+            elif board[3][0] == board[5][0] and board[4][0] == ' ' and board[3][0] == player:
+                board[4][0] = 'O'
+                break
+
+            # [4][0]
+            elif board[4][0] == board[8][0] and board[0][0] == ' ' and board[4][0] == player:
+                board[0][0] = 'O'
+                break
+
+            elif board[4][0] == board[5][0] and board[3][0] == ' ' and board[4][0] == player:
+                board[3][0] = 'O'
+                break
+
+            elif board[4][0] == board[7][0] and board[1][0] == ' ' and board[4][0] == player:
+                board[1][0] = 'O'
+                break
+
+            elif board[4][0] == board[6][0] and board[2][0] == ' ' and board[4][0] == player:
+                board[2][0] = 'O'
+                break
+
+            # [5][0]
+            elif board[5][0] == board[8][0] and board[2][0] == ' ' and board[5][0] == player:
+                board[2][0] = 'O'
+                break
+
+            # [6][0]
+            elif board[6][0] == board[7][0] and board[8][0] == ' ' and board[6][0] == player:
+                board[8][0] = 'O'
+                break
+
+            elif board[6][0] == board[8][0] and board[7][0] == ' ' and board[6][0] == player:
+                board[7][0] = 'O'
+                break
+
+            # [7][0]
+            elif board[7][0] == board[8][0] and board[6][0] == ' 'and board[7][0] == player:
+                board[6][0] = 'O'
+                break
+            
+        else:
+            bot_move = randint(1,9)
+            if board[bot_move-1][0] == ' ': 
+                board[bot_move-1][0] = 'O'
                 break
             else:
                 continue
+        break
 
 def checkBoardFull():
     global isBoardFull
@@ -247,7 +227,9 @@ while True:
     except:
         print('Please choose between those options (1 or 2).')
 
-print('You will be the X and need to inform where to play with numbers, just like this: ')
+print()
+print('--> You will be the X and need to inform where to play with numbers, just like this: ')
+print()
 printBoardNumbers()
 print('''
 Good luck, here's the real board:
