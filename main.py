@@ -10,14 +10,14 @@ board = [
     [' '],[' '],[' ']
 ]
 
-def printBoardNumbers():
+def print_board_numbers():
     print(' 1 | 2 | 3 ')
     print('---|---|---')
     print(' 4 | 5 | 6 ')
     print('---|---|---')
     print(' 7 | 8 | 9 ')
 
-def printBoard():
+def print_board():
     global board
     print(f' {board[0][0]} | {board[1][0]} | {board[2][0]} ')
     print('---|---|---')
@@ -25,7 +25,7 @@ def printBoard():
     print('---|---|---')
     print(f' {board[6][0]} | {board[7][0]} | {board[8][0]} ')
 
-def askMove(letter):
+def ask_move(letter):
     global board
     while True:
         try:
@@ -41,7 +41,7 @@ def askMove(letter):
         except:
             print('Something went wrong, try again.')
 
-def botMove():
+def bot_move():
     global board
     PLAYERS = ['O','X']
     while True:
@@ -159,7 +159,7 @@ def botMove():
                 continue
         break
 
-def checkBoardFull():
+def check_board_full():
     global isBoardFull
     if board[0][0] != ' ' and \
         board[1][0] != ' ' and \
@@ -171,7 +171,7 @@ def checkBoardFull():
         board[7][0] != ' ' and \
         board[8][0] != ' ': isBoardFull = 'Y'
 
-def checkWinner(player1,player2):
+def check_winner(player1,player2):
     global isThereWinner
     for i in 'X':
         if board[0][0] == i and board[1][0] == i and board[2][0] == i:
@@ -230,11 +230,11 @@ while True:
 print()
 print('--> You will be the X and need to inform where to play with numbers, just like this: ')
 print()
-printBoardNumbers()
+print_board_numbers()
 print('''
 Good luck, here's the real board:
 ''')
-printBoard()
+print_board()
 
 if game_type == 'Against Bot':
 
@@ -243,10 +243,10 @@ if game_type == 'Against Bot':
         print()
         print(' > You play!')
         print()
-        askMove('X')
-        printBoard()
-        checkWinner('Player','Bot')
-        checkBoardFull()
+        ask_move('X')
+        print_board()
+        check_winner('Player','Bot')
+        check_board_full()
         if isBoardFull != 'N' or isThereWinner != 'N': break
         
         # BOT MOVE
@@ -255,10 +255,10 @@ if game_type == 'Against Bot':
         print(' > Bot\'s time!')
         print()
         sleep(0.5)
-        botMove()
-        printBoard()
-        checkBoardFull()
-        checkWinner('Player','Bot')
+        bot_move()
+        print_board()
+        check_board_full()
+        check_winner('Player','Bot')
         if isBoardFull != 'N' or isThereWinner != 'N': break
 
     if isThereWinner == 'Player': print('>>> Congratulations, you won!!! >>>')
@@ -276,10 +276,10 @@ elif game_type == '1v1':
         print()
         print(' > Player 1\'s time!')
         print()
-        askMove('X')
-        printBoard()
-        checkWinner('Player1','Player2')
-        checkBoardFull()
+        ask_move('X')
+        print_board()
+        check_winner('Player1','Player2')
+        check_board_full()
         if isBoardFull != 'N' or isThereWinner != 'N': break
         
         # PLAYER 2 MOVE
@@ -288,10 +288,10 @@ elif game_type == '1v1':
         print(' > Player 2\'s time!')
         print()
         sleep(0.5)
-        askMove('O')
-        printBoard()
-        checkBoardFull()
-        checkWinner('Player1','Player2')
+        ask_move('O')
+        print_board()
+        check_board_full()
+        check_winner('Player1','Player2')
         if isBoardFull != 'N' or isThereWinner != 'N': break
 
     if isThereWinner == 'Player1': print('>>> Congratulations, Player 1, you won it!!! <<<')
